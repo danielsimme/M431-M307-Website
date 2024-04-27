@@ -1,1 +1,1 @@
-Alle wichtigen Abgaben sind in der Wiki und im Projekt verlinkt 
+Alle wichtigen Abgaben und Dokumente sind in der Wiki und im Projekt verlinkt 
