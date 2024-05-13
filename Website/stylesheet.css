@@ -25,6 +25,7 @@
   border-radius: 0;
   box-shadow: none;
   border: none;
+  padding-left: 5%;
 }
 
 @media (min-width: 768px) {
@@ -221,4 +222,28 @@
   right: -60%;
   transform: rotate(-19deg);
   opacity: 0.2;
+}
+
+#myCarousel {
+  width: 90%; /* Specify your desired width */
+  height: 50%; /* Specify your desired height */
+  margin: auto;
+  margin-bottom: 400px;
+}
+
+.carousel-inner img {
+  width: 100%; /* Ensures the image fills the entire width of the carousel container */
+  height: 100%; /* Ensures the image fills the entire height of the carousel container */
+  object-fit: cover; /* Ensures the image is proportionally scaled to cover the entire container */
+  display: block; /* Ensures the image behaves as a block element */
+  margin: auto; /* Centers the image horizontally within the container */
+}
+
+.carousel-control {
+  opacity: 0%;
+  align-content: center;
+}
+
+h1 {
+  padding-left: 5%;
 }
