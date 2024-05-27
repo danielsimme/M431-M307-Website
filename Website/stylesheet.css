@@ -4,231 +4,41 @@
   font-weight: 900;
   font-style: normal;
 }
-
-.header-white {
-  /*background: linear-gradient(135deg, #fe2929, #ffb3c5);*/
-  background-color: #ffffff;
-  padding-bottom: 80px;
+body {
+  font-family: "Montserrat", sans-serif;
 }
 
-@media (min-width: 768px) {
-  .header-white {
-    padding-bottom: 120px;
-  }
+.header {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #000;
+  padding: 10px 15px;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  border-radius: 4px;
+}
+.navbar .nav-menu {
+  display: flex;
 }
 
-.header-white .navbar {
-  background: transparent;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  color: #000000;
-  border-radius: 0;
-  box-shadow: none;
-  border: none;
-  padding-left: 5%;
-}
-
-@media (min-width: 768px) {
-  .header-white .navbar {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-
-.header-white .navbar .navbar-brand {
-  font-weight: bold;
-  color: inherit;
-}
-
-.header-white .navbar .navbar-brand:hover {
-  color: #000000;
-}
-
-.header-white .navbar .navbar-collapse {
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  margin-top: 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .header-white .navbar .navbar-collapse {
-    border-color: transparent;
-    margin: 0;
-  }
-}
-
-.header-white .navbar .navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.header-white .navbar .navbar-toggler:hover,
-.header-white .navbar-toggler:focus {
-  background: none;
-}
-
-@media (min-width: 768px) {
-  .header-white .navbar-nav .nav-link {
-    padding-left: 0.7rem;
-    padding-right: 0.7rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .header-white .navbar-nav .nav-link {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-  }
-}
-
-.header-white .navbar.navbar-light .navbar-nav .nav-link {
-  color: #000000;
-}
-
-.header-white .navbar.navbar-light .navbar-nav .nav-link:focus,
-.header-white .navbar.navbar-light .navbar-nav .nav-link:hover {
-  color: #000000 !important;
-  background-color: transparent;
-}
-
-.header-white .navbar .navbar-nav > li > .dropdown-menu {
-  margin-top: -5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  border-radius: 2px;
-}
-
-.header-white .navbar .dropdown-menu .dropdown-item:focus,
-.header-white .navbar .dropdown-menu .dropdown-item {
-  line-height: 2;
-  color: #37434d;
-}
-
-.header-white .navbar .dropdown-menu .dropdown-item:focus,
-.header-white .navbar .dropdown-menu .dropdown-item:hover {
-  background: #ebeff1;
-}
-
-.header-white .action-button,
-.header-white .action-button:not(.disabled):active {
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 40px;
-  color: #fff;
-  box-shadow: none;
-  text-shadow: none;
-  padding: 0.3rem 0.8rem;
-  background: transparent;
-  transition: background-color 0.25s;
-  outline: none;
-}
-
-.header-white .action-button:hover {
-  color: #fff;
-}
-
-.header-white .navbar .form-inline label {
-  color: #d9d9d9;
-}
-
-.header-white .navbar .form-inline .search-field {
-  display: inline-block;
-  width: 80%;
-  background: none;
-  border: none;
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-  color: #fff;
-  box-shadow: none;
-  color: inherit;
-  transition: border-bottom-color 0.3s;
-}
-
-.header-white .navbar .form-inline .search-field:focus {
-  border-bottom: 1px solid #ccc;
-}
-
-.header-white .hero {
-  margin-top: 20px;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .header-white .hero {
-    margin-top: 60px;
-    text-align: left;
-  }
-}
-
-.header-white .hero h1 {
-  color: #fff;
-  font-size: 40px;
-  margin-top: 0;
-  margin-bottom: 15px;
-  font-weight: 300;
-  line-height: 1.4;
-}
-
-@media (min-width: 992px) {
-  .header-white .hero h1 {
-    margin-top: 190px;
-    margin-bottom: 24px;
-    line-height: 1.2;
-  }
-}
-
-.header-white .hero p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 20px;
-  margin-bottom: 30px;
-  font-weight: 300;
-}
-
-.header-white .phone-holder {
-  text-align: right;
-}
-
-.header-white div.iphone-mockup {
-  position: relative;
-  max-width: 300px;
-  margin-top: 172px;
-  display: inline-block;
-}
-
-.header-white .iphone-mockup img.device {
-  width: 100%;
-  height: auto;
-}
-
-.header-white .iphone-mockup .screen {
-  position: absolute;
-  width: 88%;
-  height: 77%;
-  top: 12%;
-  border-radius: 2px;
-  left: 6%;
-  border: 1px solid #444;
-  background-color: #aaa;
-  overflow: hidden;
-  background: url(../../assets/img/screen-content-iphone-6.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.header-white .iphone-mockup .screen:before {
-  content: "";
-  background-color: #fff;
-  position: absolute;
-  width: 70%;
-  height: 140%;
-  top: -12%;
-  right: -60%;
-  transform: rotate(-19deg);
-  opacity: 0.2;
-}
-
-#myCarousel {
+#myCarousel,
+#myCarousel-2 {
   width: 90%; /* Specify your desired width */
   height: 50%; /* Specify your desired height */
   margin: auto;
-  margin-bottom: 400px;
+  margin-bottom: 10px;
 }
 
 .carousel-inner img {
