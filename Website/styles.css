@@ -1,4 +1,5 @@
-h1 {
+h1,
+h2 {
   padding-left: 5%;
 }
 
@@ -118,4 +119,26 @@ footer {
 .footer-logo {
   font-size: 24px;
   font-weight: bold;
+}
+
+/*Carousel*/
+#myCarousel,
+#myCarousel-2 {
+  width: 90%; /* Specify your desired width */
+  height: 50%; /* Specify your desired height */
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.carousel-inner img {
+  width: 100%; /* Ensures the image fills the entire width of the carousel container */
+  height: 100%; /* Ensures the image fills the entire height of the carousel container */
+  object-fit: cover; /* Ensures the image is proportionally scaled to cover the entire container */
+  display: block; /* Ensures the image behaves as a block element */
+  margin: auto; /* Centers the image horizontally within the container */
+}
+
+.carousel-control {
+  opacity: 0%;
+  align-content: center;
 }
