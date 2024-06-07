@@ -29,8 +29,8 @@
         <div class="nav-container">
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="form-page-1.php">Contact</a></li>
                 </ul>
             </nav>
         </div>

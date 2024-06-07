@@ -14,42 +14,27 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .container {
-            max-width: 60%;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-
-        @media (max-width: 768px) {
-
-            /* Styles for tablets */
-            .container {
-                max-width: 80%;
-            }
-        }
-
-        @media (max-width: 576px) {
-
-            /* Styles for smartphones */
-            .container {
-                max-width: 90%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 
     <title>Form</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Contact Us</h1>
+    <header>
+        <div class="logo">dandrew</div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="form-page-1.php">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="title-section">
+        <h1>CONTACT <span>US</span></h1>
+    </div>
+    <div class="projects-section">
 
         <ul class="compass">
             <li class="compassitem">
@@ -59,7 +44,7 @@
                 <a class="compasslink" href="form-page-2.php">2</a>
             </li>
             <li class="compassactive">
-                <a class="compasslinkactive" href="form-page-1.php">1</a>
+                <a class="compasslinkactive" href="form-page-3.php">3</a>
             </li>
         </ul>
 

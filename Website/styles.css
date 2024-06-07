@@ -74,7 +74,7 @@ nav ul li a::before {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #fff;
@@ -141,4 +141,114 @@ footer {
 .carousel-control {
   opacity: 0%;
   align-content: center;
+}
+
+/* Form */
+.container {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #d9d9d9;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #adadad;
+}
+
+/* Compass */
+.compass {
+  text-align: justify;
+  position: relative;
+  overflow: hidden;
+}
+
+.compassitem:before,
+.compassactive:after {
+  content: "";
+  width: 100%;
+  border: 2px solid #d9d9d9;
+  position: absolute;
+  top: 1em;
+  margin-top: -2px;
+  z-index: -1;
+}
+
+.compass:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+.compassitem {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 50%;
+  background: #d9d9d9;
+  margin: 0 1em;
+  display: inline-block;
+  color: #000000;
+}
+
+.compassactive {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  line-height: 2em;
+  border-radius: 50%;
+  background: #000000;
+  margin: 0 1em;
+  display: inline-block;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  /* Styles for tablets */
+  .container {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Styles for smartphones */
+  .container {
+    max-width: 90%;
+  }
 }
