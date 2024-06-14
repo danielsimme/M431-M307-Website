@@ -1,3 +1,13 @@
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['surname'] = $_POST['surname'];
+    $_SESSION['company'] = $_POST['company'];
+    header("Location: form-page-2.php");
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -36,41 +46,26 @@
     </div>
     <div class="projects-section">
         <ul class="compass">
-            <li class="compassactive">
-                <a class="compasslinkactive" href="form-page-1.php">1</a>
-            </li>
-            <li class="compassitem">
-                <a class="compasslink" href="form-page-2.php">2</a>
-            </li>
-            <li class="compassitem">
-                <a class="compasslink" href="form-page-3.php">3</a>
-            </li>
+            <li class="compassactive">1</li>
+            <li class="compassitem">2</li>
+            <li class="compassitem">3</li>
         </ul>
-
-
-        <form id="contactForm">
-
+        <form method="POST" action="form-page-1.php" id="contactForm">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
-
             <div class="form-group">
                 <label for="surname">Surname</label>
                 <input type="text" id="surname" name="surname" required>
             </div>
-
             <div class="form-group">
                 <label for="company">Company</label>
                 <input type="text" id="company" name="company">
-                <div class="form-group">
-                </div>
-
-                <button type="submit">Next</button>
-
+            </div>
+            <button type="submit">Next</button>
         </form>
     </div>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

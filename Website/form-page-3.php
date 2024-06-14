@@ -1,3 +1,30 @@
+<?php
+session_start();
+include 'db_connection.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_SESSION['name'];
+    $surname = $_SESSION['surname'];
+    $company = $_SESSION['company'];
+    $email = $_SESSION['email'];
+    $phone = $_SESSION['phone'];
+    $options = $_POST['options'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO form_data (name, surname, company, email, phone, options, message) VALUES ('$name', '$surname', '$company', '$email', '$phone', '$options', '$message')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<script>
+                alert('Your form has been submitted, we will contactyou soon!');
+                window.location.href = 'confirmation.html';
+              </script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+    session_destroy();
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -35,43 +62,28 @@
         <h1>CONTACT <span>US</span></h1>
     </div>
     <div class="projects-section">
-
         <ul class="compass">
-            <li class="compassitem">
-                <a class="compasslink" href="form-page-1.php">1</a>
-            </li>
-            <li class="compassitem">
-                <a class="compasslink" href="form-page-2.php">2</a>
-            </li>
-            <li class="compassactive">
-                <a class="compasslinkactive" href="form-page-3.php">3</a>
-            </li>
+            <li class="compassitem">1</li>
+            <li class="compassitem">2</li>
+            <li class="compassactive">3</li>
         </ul>
-
-
-        <form id="contactForm">
-
+        <form method="POST" action="form-page-3.php" id="contactForm">
             <div class="form-group">
                 <label for="options">Regarding</label>
                 <select id="options" name="options" required>
                     <option value="">Select Option</option>
-                    <option value="option1">Job Offer</option>
-                    <option value="option2">Question Regarding Assets</option>
-                    <option value="option3">Other</option>
+                    <option value="Job Offer">Job Offer</option>
+                    <option value="Question Regarding Assets">Question Regarding Assets</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="message">Your Message</label>
                 <textarea id="message" name="message" required></textarea>
             </div>
-
-
-            <button type="submit">Next</button>
-
+            <button type="submit">Submit</button>
         </form>
     </div>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
