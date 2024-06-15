@@ -1,11 +1,11 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['option'] = $_POST['option'];
-    $_SESSION['person'] = $_POST['person'];
-    $_SESSION['meeting'] = $_POST['meeting'];
-    $_SESSION['budgetrange'] = $_POST['budgetrange'];
+    $_SESSION['options'] = $_POST['options'];
     $_SESSION['message'] = $_POST['message'];
+    $_SESSION['meeting'] = isset($_POST['meeting']) ? 1 : 0;
+    $_SESSION['person'] = $_POST['person'];
+    $_SESSION['budgetRange'] = $_POST['budgetRange'];
     header("Location: form-page-4.php");
     exit();
 }

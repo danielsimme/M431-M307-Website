@@ -3,11 +3,6 @@ session_start();
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['options'] = $_POST['options'];
-    $_SESSION['message'] = $_POST['message'];
-    $_SESSION['meeting'] = isset($_POST['meeting']) ? 1 : 0;
-    $_SESSION['person'] = $_POST['person'];
-    $_SESSION['budgetRange'] = $_POST['budgetRange'];
 
     $name = $_SESSION['name'];
     $surname = $_SESSION['surname'];
