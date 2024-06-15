@@ -3,6 +3,11 @@ session_start();
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION['options'] = $_POST['options'];
+    $_SESSION['message'] = $_POST['message'];
+    $_SESSION['meeting'] = isset($_POST['meeting']) ? 1 : 0;
+    $_SESSION['person'] = $_POST['person'];
+    $_SESSION['budgetRange'] = $_POST['budgetRange'];
 
     $name = $_SESSION['name'];
     $surname = $_SESSION['surname'];
@@ -17,34 +22,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $website = $_SESSION['website'];
     $person = $_SESSION['person'];
     $budgetRange = $_SESSION['budgetRange'];
+    $file = $_SESSION['file'];
+
 
     // File upload handling
-    $file = '';
-    if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-        $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Check if file is an actual image or fake image
-        $check = getimagesize($_FILES["file"]["tmp_name"]);
-        if ($check !== false) {
-            // Check file size (5MB max)
-            if ($_FILES["file"]["size"] <= 5000000) {
-                // Allow certain file formats
-                if ($fileType == "jpg" || $fileType == "png" || $fileType == "jpeg" || $fileType == "gif") {
-                    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-                        $file = $target_file; // Store the path to the uploaded file
-                    } else {
-                        echo "Sorry, there was an error uploading your file.";
-                    }
-                } else {
-                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                }
-            } else {
-                echo "Sorry, your file is too large.";
-            }
+    $website = '';
+    error_reporting(0);
+ 
+    $msg = "";
+     
+    // If upload button is clicked ...
+    if (isset($_POST['submit'])) {
+     
+        $file = $_FILE["file"]["name"];
+        $tempname = $_FILE["file"]["tmp_name"];
+        $folder = "./image/" . $file;
+     
+        $db = mysqli_connect("localhost", "root", "", "geeksforgeeks");
+     
+        // Get all the submitted data from the form
+        $sql = "INSERT INTO image (filename) VALUES ('$filename')";
+     
+        // Execute query
+        mysqli_query($db, $sql);
+     
+        // Now let's move the uploaded image into the folder: image
+        if (move_uploaded_file($tempname, $folder)) {
+            echo "<h3>  Image uploaded successfully!</h3>";
         } else {
-            echo "File is not an image.";
+            echo "<h3>  Failed to upload image!</h3>";
         }
     }
 
