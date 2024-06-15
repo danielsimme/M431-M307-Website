@@ -3,6 +3,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['phone'] = $_POST['phone'];
+    $_SESSION['website'] = $_POST['website'];
     header("Location: form-page-3.php");
     exit();
 }
