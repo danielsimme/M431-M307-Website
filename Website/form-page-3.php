@@ -5,6 +5,10 @@ include 'db_connection.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['options'] = $_POST['options'];
     $_SESSION['message'] = $_POST['message'];
+    $_SESSION['meeting'] = isset($_POST['meeting']) ? 1 : 0;
+    $_SESSION['website'] = $_POST['website'];
+    $_SESSION['person'] = $_POST['person'];
+    $_SESSION['budgetRange'] = $_POST['budgetRange'];
 
     $name = $_SESSION['name'];
     $surname = $_SESSION['surname'];
@@ -13,8 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_SESSION['phone'];
     $options = $_SESSION['options'];
     $message = $_SESSION['message'];
+    $meeting = $_SESSION['meeting'];
+    $website = $_SESSION['website'];
+    $person = $_SESSION['person'];
+    $budgetRange = $_SESSION['budgetRange'];
 
-    $sql = "INSERT INTO form_data (name, surname, company, email, phone, options, message) VALUES ('$name', '$surname', '$company', '$email', '$phone', '$options', '$message')";
+    $sql = "INSERT INTO form_data (name, surname, company, email, phone, options, message, meeting, website, person, budgetRange) VALUES ('$name', '$surname', '$company', '$email', '$phone', '$options', '$message', '$meeting', '$website', '$person', '$budgetRange')";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>
@@ -72,8 +80,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
             <div class="form-group">
+                <label for="person">Select a person to contact</label>
+                <select id="person" name="person" required>
+                    <option value="">Select Person</option>
+                    <option value="Daniel" <?= isset($_SESSION['person']) && $_SESSION['person'] == 'Daniel' ? 'selected' : '' ?>>Daniel</option>
+                    <option value="Andrew" <?= isset($_SESSION['person']) && $_SESSION['person'] == 'Andrew' ? 'selected' : '' ?>>Andrew</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="meeting" name="meeting" <?= isset($_SESSION['meeting']) && $_SESSION['meeting'] ? 'checked' : '' ?>>
+                <label for="meeting">I want to have a meeting</label>
+            </div>
+            <div class="form-group">
+                <label for="budgetRange">Select Your Budget Range: <span id="budgetRangeValue">$100 - $10,000</span></label>
+                <input type="range" class="form-range" min="100" max="10000" step="100" id="budgetRange" name="budgetRange" value="10000">
+            </div>
+            <div class="form-group">
                 <label for="message">Your Message</label>
                 <textarea id="message" name="message" required><?= isset($_SESSION['message']) ? $_SESSION['message'] : '' ?></textarea>
+            </div>
+            <div class="form-group">
+                <label for="picture">Upload Picture</label>
+                <input type="file" id="picture" name="picture" accept="image/*">
             </div>
             <button type="submit">Submit</button>
         </form>

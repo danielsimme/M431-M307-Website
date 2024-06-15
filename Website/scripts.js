@@ -1,6 +1,6 @@
 document.getElementById("phone").addEventListener("input", function (e) {
-  var value = e.target.value.replace(/\D/g, "");
-  var formattedValue = value;
+  let value = e.target.value.replace(/\D/g, "");
+  let formattedValue = value;
 
   if (value.length > 10) {
     formattedValue = formattedValue.slice(0, 10);
@@ -26,4 +26,11 @@ document.getElementById("phone").addEventListener("input", function (e) {
   }
 
   e.target.value = formattedValue;
+});
+
+const budgetRange = document.getElementById("budgetRange");
+const budgetRangeValue = document.getElementById("budgetRangeValue");
+
+budgetRange.addEventListener("input", function () {
+  budgetRangeValue.textContent = `$100 - $${budgetRange.value}`;
 });

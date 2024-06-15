@@ -51,6 +51,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" id="surname" name="surname" value="<?= isset($_SESSION['surname']) ? $_SESSION['surname'] : '' ?>" required>
             </div>
             <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="Switzerland" <?= isset($_SESSION['country']) && $_SESSION['country'] == 'Switzerland' ? 'selected' : '' ?>>Switzerland</option>
+                    <option value="Europe" <?= isset($_SESSION['country']) && $_SESSION['country'] == 'Europe' ? 'selected' : '' ?>>Europe</option>
+                    <option value="Other" <?= isset($_SESSION['country']) && $_SESSION['country'] == 'Other' ? 'selected' : '' ?>>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div style="display: flex; gap: 20px;">
+                    <div style="text-align: center;">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="male" name="gender" value="Male" <?= isset($_SESSION['gender']) && $_SESSION['gender'] == 'Male' ? 'checked' : '' ?>>
+                    </div>
+                    <div style="text-align: center;">
+                        <label for="female">Female</label><br>
+                        <input type="radio" id="female" name="gender" value="Female" <?= isset($_SESSION['gender']) && $_SESSION['gender'] == 'Female' ? 'checked' : '' ?>>
+                    </div>
+                    <div style="text-align: center;">
+                        <label for="other">Other</label><br>
+                        <input type="radio" id="other" name="gender" value="Other" <?= isset($_SESSION['gender']) && $_SESSION['gender'] == 'Other' ? 'checked' : '' ?>>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="company">Company</label>
                 <input type="text" id="company" name="company" value="<?= isset($_SESSION['company']) ? $_SESSION['company'] : '' ?>">
             </div>
