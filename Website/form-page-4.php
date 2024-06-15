@@ -3,12 +3,6 @@ session_start();
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['options'] = $_POST['options'];
-    $_SESSION['message'] = $_POST['message'];
-    $_SESSION['meeting'] = isset($_POST['meeting']) ? 1 : 0;
-    $_SESSION['person'] = $_POST['person'];
-    $_SESSION['budgetRange'] = $_POST['budgetRange'];
-
     $name = $_SESSION['name'];
     $surname = $_SESSION['surname'];
     $country = $_SESSION['country'];
@@ -23,36 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $person = $_SESSION['person'];
     $budgetRange = $_SESSION['budgetRange'];
     $file = $_SESSION['file'];
-
-
-    // File upload handling
-    $website = '';
-    error_reporting(0);
- 
-    $msg = "";
-     
-    // If upload button is clicked ...
-    if (isset($_POST['submit'])) {
-     
-        $file = $_FILE["file"]["name"];
-        $tempname = $_FILE["file"]["tmp_name"];
-        $folder = "./image/" . $file;
-     
-        $db = mysqli_connect("localhost", "root", "", "geeksforgeeks");
-     
-        // Get all the submitted data from the form
-        $sql = "INSERT INTO image (filename) VALUES ('$filename')";
-     
-        // Execute query
-        mysqli_query($db, $sql);
-     
-        // Now let's move the uploaded image into the folder: image
-        if (move_uploaded_file($tempname, $folder)) {
-            echo "<h3>  Image uploaded successfully!</h3>";
-        } else {
-            echo "<h3>  Failed to upload image!</h3>";
-        }
-    }
 
     $sql = "INSERT INTO form_data (name, surname, country, gender, company, email, phone, options, message, meeting, website, person, budgetRange, file) 
             VALUES ('$name', '$surname', '$country', '$gender', '$company', '$email', '$phone', '$options', '$message', '$meeting', '$website', '$person', '$budgetRange', '$file')";

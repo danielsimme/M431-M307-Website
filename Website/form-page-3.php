@@ -1,11 +1,27 @@
 <?php
 session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['options'] = $_POST['options'];
     $_SESSION['message'] = $_POST['message'];
     $_SESSION['meeting'] = isset($_POST['meeting']) ? 1 : 0;
     $_SESSION['person'] = $_POST['person'];
     $_SESSION['budgetRange'] = $_POST['budgetRange'];
+
+    // Handle file upload
+    if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
+        $target_dir = "uploads/";
+        if (!file_exists($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+            $_SESSION['file'] = $target_file;
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
     header("Location: form-page-4.php");
     exit();
 }
