@@ -6,12 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['options'] = $_POST['options'];
     $_SESSION['message'] = $_POST['message'];
     $_SESSION['meeting'] = isset($_POST['meeting']) ? 1 : 0;
-    $_SESSION['website'] = $_POST['website'];
     $_SESSION['person'] = $_POST['person'];
     $_SESSION['budgetRange'] = $_POST['budgetRange'];
 
     $name = $_SESSION['name'];
     $surname = $_SESSION['surname'];
+    $country = $_SESSION['country'];
+    $gender = $_SESSION['gender'];
     $company = $_SESSION['company'];
     $email = $_SESSION['email'];
     $phone = $_SESSION['phone'];
@@ -22,7 +23,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $person = $_SESSION['person'];
     $budgetRange = $_SESSION['budgetRange'];
 
-    $sql = "INSERT INTO form_data (name, surname, company, email, phone, options, message, meeting, website, person, budgetRange) VALUES ('$name', '$surname', '$company', '$email', '$phone', '$options', '$message', '$meeting', '$website', '$person', '$budgetRange')";
+    // File upload handling
+    $file = '';
+    if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+        $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Check if file is an actual image or fake image
+        $check = getimagesize($_FILES["file"]["tmp_name"]);
+        if ($check !== false) {
+            // Check file size (5MB max)
+            if ($_FILES["file"]["size"] <= 5000000) {
+                // Allow certain file formats
+                if ($fileType == "jpg" || $fileType == "png" || $fileType == "jpeg" || $fileType == "gif") {
+                    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+                        $file = $target_file; // Store the path to the uploaded file
+                    } else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                } else {
+                    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                }
+            } else {
+                echo "Sorry, your file is too large.";
+            }
+        } else {
+            echo "File is not an image.";
+        }
+    }
+
+    $sql = "INSERT INTO form_data (name, surname, country, gender, company, email, phone, options, message, meeting, website, person, budgetRange, file) 
+            VALUES ('$name', '$surname', '$country', '$gender', '$company', '$email', '$phone', '$options', '$message', '$meeting', '$website', '$person', '$budgetRange', '$file')";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>
@@ -69,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li class="compassitem"><a href="form-page-2.php">2</a></li>
             <li class="compassactive">3</li>
         </ul>
-        <form method="POST" action="form-page-3.php" id="contactForm">
+        <form method="POST" action="form-page-3.php" id="contactForm" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="options">Regarding</label>
                 <select id="options" name="options" required>
@@ -100,8 +132,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <textarea id="message" name="message" required><?= isset($_SESSION['message']) ? $_SESSION['message'] : '' ?></textarea>
             </div>
             <div class="form-group">
-                <label for="picture">Upload Picture</label>
-                <input type="file" id="picture" name="picture" accept="image/*">
+                <label for="file">Upload File</label>
+                <input type="file" id="file" name="file" accept="image/*">
             </div>
             <button type="submit">Submit</button>
         </form>

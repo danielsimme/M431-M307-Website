@@ -203,8 +203,8 @@ button:hover {
   overflow: hidden;
 }
 
-.compassitem,
-.compassactive {
+.compassitem:before,
+.compassactive:after {
   content: "";
   width: 100%;
   border: 2px solid #d9d9d9;
@@ -215,7 +215,7 @@ button:hover {
   text-decoration: none;
 }
 
-.compass {
+.compass:after {
   content: "";
   display: inline-block;
   width: 100%;
@@ -243,6 +243,22 @@ button:hover {
   margin: 0 1em;
   display: inline-block;
   color: white;
+}
+
+/* Styles for compass links */
+.compassitem a {
+  text-decoration: none; /* Remove underline from links */
+  color: #000000; /* Set your desired color for normal items */
+}
+
+.compassactive a {
+  text-decoration: none; /* Remove underline from active link */
+  color: white; /* Set your desired color for active item */
+}
+
+/* Hover effect for compass links */
+.compassitem a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
 }
 
 @media (max-width: 768px) {

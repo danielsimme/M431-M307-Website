@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -76,7 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="company">Company</label>
                 <input type="text" id="company" name="company" value="<?= isset($_SESSION['company']) ? $_SESSION['company'] : '' ?>">
