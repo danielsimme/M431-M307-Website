@@ -3,19 +3,22 @@ session_start();
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION['options'] = $_POST['options'];
+    $_SESSION['message'] = $_POST['message'];
+
     $name = $_SESSION['name'];
     $surname = $_SESSION['surname'];
     $company = $_SESSION['company'];
     $email = $_SESSION['email'];
     $phone = $_SESSION['phone'];
-    $options = $_POST['options'];
-    $message = $_POST['message'];
+    $options = $_SESSION['options'];
+    $message = $_SESSION['message'];
 
     $sql = "INSERT INTO form_data (name, surname, company, email, phone, options, message) VALUES ('$name', '$surname', '$company', '$email', '$phone', '$options', '$message')";
 
     if ($conn->query($sql) === TRUE) {
         echo "<script>
-                alert('Your form has been submitted, we will contactyou soon!');
+                alert('Your form has been submitted, we will contact you soon!');
                 window.location.href = 'confirmation.html';
               </script>";
     } else {
@@ -29,20 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font import -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
     <title>Form</title>
 </head>
 
@@ -63,8 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <div class="projects-section">
         <ul class="compass">
-            <li class="compassitem">1</li>
-            <li class="compassitem">2</li>
+            <li class="compassitem"><a href="form-page-1.php">1</a></li>
+            <li class="compassitem"><a href="form-page-2.php">2</a></li>
             <li class="compassactive">3</li>
         </ul>
         <form method="POST" action="form-page-3.php" id="contactForm">
@@ -72,20 +66,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="options">Regarding</label>
                 <select id="options" name="options" required>
                     <option value="">Select Option</option>
-                    <option value="Job Offer">Job Offer</option>
-                    <option value="Question Regarding Assets">Question Regarding Assets</option>
-                    <option value="Other">Other</option>
+                    <option value="Job Offer" <?= isset($_SESSION['options']) && $_SESSION['options'] == 'Job Offer' ? 'selected' : '' ?>>Job Offer</option>
+                    <option value="Question Regarding Assets" <?= isset($_SESSION['options']) && $_SESSION['options'] == 'Question Regarding Assets' ? 'selected' : '' ?>>Question Regarding Assets</option>
+                    <option value="Other" <?= isset($_SESSION['options']) && $_SESSION['options'] == 'Other' ? 'selected' : '' ?>>Other</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="message">Your Message</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" required><?= isset($_SESSION['message']) ? $_SESSION['message'] : '' ?></textarea>
             </div>
             <button type="submit">Submit</button>
         </form>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+    <footer>
+        <div class="social-icons">
+            <a href="https://x.com" target="_blank">
+                <img src="Icons/Twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="Icons/Instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="Icons/Youtube.svg" alt="YouTube">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="Icons/LinkedIn.svg" alt="LinkedIn">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="Icons/Facebook.svg" alt="Facebook">
+            </a>
+        </div>
+        <div class="footer-logo">dandrew</div>
+    </footer>
 </body>
 
 </html>

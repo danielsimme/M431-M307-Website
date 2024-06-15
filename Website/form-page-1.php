@@ -12,20 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font import -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
     <title>Form</title>
 </head>
 
@@ -42,32 +33,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </header>
     <div class="title-section">
-        <h1>ALL OUR <span>PROJECTS</span></h1>
+        <h1>CONTACT <span>US</span></h1>
     </div>
     <div class="projects-section">
         <ul class="compass">
             <li class="compassactive">1</li>
-            <li class="compassitem">2</li>
-            <li class="compassitem">3</li>
+            <li class="compassitem"><a href="form-page-2.php">2</a></li>
+            <li class="compassitem"><a href="form-page-3.php">3</a></li>
         </ul>
         <form method="POST" action="form-page-1.php" id="contactForm">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : '' ?>" required>
             </div>
             <div class="form-group">
                 <label for="surname">Surname</label>
-                <input type="text" id="surname" name="surname" required>
+                <input type="text" id="surname" name="surname" value="<?= isset($_SESSION['surname']) ? $_SESSION['surname'] : '' ?>" required>
             </div>
             <div class="form-group">
                 <label for="company">Company</label>
-                <input type="text" id="company" name="company">
+                <input type="text" id="company" name="company" value="<?= isset($_SESSION['company']) ? $_SESSION['company'] : '' ?>">
             </div>
             <button type="submit">Next</button>
         </form>
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+    <footer>
+        <div class="social-icons">
+            <a href="https://x.com" target="_blank">
+                <img src="Icons/Twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="Icons/Instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="Icons/Youtube.svg" alt="YouTube">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="Icons/LinkedIn.svg" alt="LinkedIn">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="Icons/Facebook.svg" alt="Facebook">
+            </a>
+        </div>
+        <div class="footer-logo">dandrew</div>
+    </footer>
 </body>
 
 </html>

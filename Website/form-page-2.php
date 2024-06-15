@@ -11,20 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font import -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
     <title>Form</title>
 </head>
 
@@ -41,48 +32,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </header>
     <div class="title-section">
-        <h1>ALL OUR <span>PROJECTS</span></h1>
+        <h1>CONTACT <span>US</span></h1>
     </div>
     <div class="projects-section">
         <ul class="compass">
-            <li class="compassitem">1</li>
+            <li class="compassitem"><a href="form-page-1.php">1</a></li>
             <li class="compassactive">2</li>
-            <li class="compassitem">3</li>
+            <li class="compassitem"><a href="form-page-3.php">3</a></li>
         </ul>
         <form method="POST" action="form-page-2.php" id="contactForm">
             <div class="form-group">
                 <label for="email">E-Mail</label>
-                <input type="email" id="email" name="email" placeholder="name@email.com" required>
+                <input type="email" id="email" name="email" value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number (Swiss):</label><br>
-                <input type="tel" id="phone" name="phone" placeholder="079 123 45 67" pattern="[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}" required>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="079 123 45 67" pattern="[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}" value="<?= isset($_SESSION['phone']) ? $_SESSION['phone'] : '' ?>" required>
             </div>
             <button type="submit">Next</button>
         </form>
-
-        <script>
-            document.getElementById('phone').addEventListener('input', function(e) {
-                var value = e.target.value.replace(/\D/g, '');
-                var formattedValue = value;
-
-                if (value.length > 3) {
-                    formattedValue = value.slice(0, 3) + ' ' + value.slice(3);
-                }
-                if (value.length > 6) {
-                    formattedValue = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6);
-                }
-                if (value.length > 8) {
-                    formattedValue = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6, 8) + ' ' + value.slice(8);
-                }
-
-                e.target.value = formattedValue;
-            });
-        </script>
-
     </div>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+    <footer>
+        <div class="social-icons">
+            <a href="https://x.com" target="_blank">
+                <img src="Icons/Twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="Icons/Instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="Icons/Youtube.svg" alt="YouTube">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="Icons/LinkedIn.svg" alt="LinkedIn">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="Icons/Facebook.svg" alt="Facebook">
+            </a>
+        </div>
+        <div class="footer-logo">dandrew</div>
+    </footer>
 </body>
 
 </html>

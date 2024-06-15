@@ -132,19 +132,25 @@
     </div>
     <footer>
         <div class="social-icons">
-            <a href="#">T</a>
-            <!-- Placeholder for Twitter icon -->
-            <a href="#">I</a>
-            <!-- Placeholder for Instagram icon -->
-            <a href="#">Y</a>
-            <!-- Placeholder for YouTube icon -->
-            <a href="#">L</a>
-            <!-- Placeholder for LinkedIn icon -->
-            <a href="#">F</a>
-            <!-- Placeholder for Facebook icon -->
+            <a href="https://x.com" target="_blank">
+                <img src="Icons/Twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="Icons/Instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="Icons/Youtube.svg" alt="YouTube">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="Icons/LinkedIn.svg" alt="LinkedIn">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="Icons/Facebook.svg" alt="Facebook">
+            </a>
         </div>
         <div class="footer-logo">dandrew</div>
     </footer>
+
 </body>
 
 </html>
