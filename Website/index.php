@@ -50,26 +50,26 @@
                 <div class="item active">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 1">
+                            <img src="image/Poster 1.jpg" alt="Image 1">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 2">
+                            <img src="image/Poster 1.jpg" alt="Image 2">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 3">
+                            <img src="image/Poster 1.jpg" alt="Image 3">
                         </div>
                     </div>
                 </div>
                 <div class="item">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 4">
+                            <img src="image/Poster 1.jpg" alt="Image 4">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 5">
+                            <img src="image/Poster 1.jpg" alt="Image 5">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 6">
+                            <img src="image/Poster 1.jpg" alt="Image 6">
                         </div>
                     </div>
                 </div>
@@ -94,26 +94,26 @@
                 <div class="item active">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 1">
+                            <img src="image/Poster 1.jpg" alt="Image 1">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 2">
+                            <img src="image/Poster 1.jpg" alt="Image 2">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 3">
+                            <img src="image/Poster 1.jpg" alt="Image 3">
                         </div>
                     </div>
                 </div>
                 <div class="item">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 4">
+                            <img src="image/Poster 1.jpg" alt="Image 4">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 5">
+                            <img src="image/Poster 1.jpg" alt="Image 5">
                         </div>
                         <div class="col-md-4">
-                            <img src="poster 1.jpg" alt="Image 6">
+                            <img src="image/Poster 1.jpg" alt="Image 6">
                         </div>
                     </div>
                 </div>
