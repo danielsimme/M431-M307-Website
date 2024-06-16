@@ -43,11 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </ul>
         <form method="POST" action="form-page-2.php" id="contactForm">
             <div class="form-group">
-                <label for="email">E-Mail</label>
+                <label for="email">E-Mail*</label>
                 <input type="email" id="email" name="email" value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone Number:</label>
+                <label for="phone">Phone Number*</label>
                 <input type="tel" id="phone" name="phone" placeholder="079 123 45 67" pattern="[0-9]{3} [0-9]{3} [0-9]{2} [0-9]{2}" value="<?= isset($_SESSION['phone']) ? $_SESSION['phone'] : '' ?>" required>
             </div>
             <div class="form-group">
